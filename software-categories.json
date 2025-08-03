@@ -1,0 +1,1442 @@
+{
+  "AI & Machine Learning": {
+    "AI Assistants": [
+      {
+        "Name": "ChatGPT Desktop",
+        "Type": "Winget",
+        "Id": "lencx.ChatGPT",
+        "Description": "ChatGPT desktop application"
+      },
+      {
+        "Name": "Claude Desktop",
+        "Type": "Winget",
+        "Id": "Anthropic.Claude",
+        "Description": "Anthropic's Claude AI assistant"
+      },
+      {
+        "Name": "ChatALL",
+        "Type": "Winget",
+        "Id": "AI-Shifu.ChatALL",
+        "Description": "Chat with multiple AI models simultaneously"
+      },
+      {
+        "Name": "Chatbox",
+        "Type": "Winget",
+        "Id": "Bin-Huang.Chatbox",
+        "Description": "Desktop AI chat client"
+      },
+      {
+        "Name": "NextChat",
+        "Type": "Winget",
+        "Id": "NextChat.NextChat",
+        "Description": "Cross-platform ChatGPT client"
+      },
+      {
+        "Name": "Cherry Studio",
+        "Type": "Winget",
+        "Id": "kangfenmao.CherryStudio",
+        "Description": "AI workspace and chat client"
+      }
+    ],
+    "AI Development Tools": [
+      {
+        "Name": "AI Shell",
+        "Type": "Winget",
+        "Id": "Microsoft.AIShell",
+        "Description": "AI-powered command-line interface"
+      },
+      {
+        "Name": "AIChat CLI",
+        "Type": "Winget",
+        "Id": "sigoden.AIChat",
+        "Description": "Command-line AI chat tool"
+      },
+      {
+        "Name": "OpenAI Translator",
+        "Type": "Winget",
+        "Id": "yetone.OpenAITranslator",
+        "Description": "AI-powered translation tool"
+      },
+      {
+        "Name": "LobeHub",
+        "Type": "Winget",
+        "Id": "LobeHub.LobeHub",
+        "Description": "Modern AI chat framework"
+      },
+      {
+        "Name": "Cursor",
+        "Type": "Winget",
+        "Id": "Anysphere.Cursor",
+        "Description": "AI-powered code editor"
+      },
+      {
+        "Name": "Witsy",
+        "Type": "Winget",
+        "Id": "NicolasBonamy.Witsy",
+        "Description": "AI writing assistant for Windows"
+      },
+      {
+        "Name": "Continue",
+        "Type": "GitHub",
+        "Repository": "continuedev/continue",
+        "AssetPattern": "\\.vsix$",
+        "Description": "Open-source AI code assistant VS Code extension"
+      }
+    ],
+    "AI Content Creation": [
+      {
+        "Name": "Grammarly",
+        "Type": "Winget",
+        "Id": "Grammarly.Grammarly",
+        "Description": "AI writing assistant"
+      },
+      {
+        "Name": "DeepL",
+        "Type": "Winget",
+        "Id": "DeepL.DeepL",
+        "Description": "AI-powered translation software"
+      },
+      {
+        "Name": "Stable Diffusion WebUI (Automatic1111)",
+        "Type": "CustomInstall",
+        "Description": "Automatic1111's Stable Diffusion WebUI for AI image generation"
+      },
+      {
+        "Name": "Stable Diffusion WebUI Forge",
+        "Type": "Winget",
+        "Id": "StabilityAI.StableDiffusion",
+        "Description": "AI image generation software"
+      },
+      {
+        "Name": "Monica AI",
+        "Type": "Winget",
+        "Id": "ButterflyEffect.Monica",
+        "Description": "AI copilot and productivity assistant"
+      }
+    ],
+    "Local AI Models": [
+      {
+        "Name": "Ollama",
+        "Type": "Winget",
+        "Id": "Ollama.Ollama",
+        "Description": "Run large language models locally"
+      },
+      {
+        "Name": "Backyard AI",
+        "Type": "Winget",
+        "Id": "AhoyLabs.BackyardAI",
+        "Description": "Local AI model runner"
+      },
+      {
+        "Name": "LM Studio",
+        "Type": "Winget",
+        "Id": "ElementLabs.LMStudio",
+        "Description": "Run local LLMs with GUI"
+      },
+      {
+        "Name": "Msty",
+        "Type": "Winget",
+        "Id": "CloudStack.Msty",
+        "Description": "Local AI chat interface"
+      },
+      {
+        "Name": "Reor",
+        "Type": "Winget",
+        "Id": "ReorProject.Reor",
+        "Description": "AI-powered note-taking app"
+      }
+    ],
+    "AI Research & Analytics": [
+      {
+        "Name": "Anaconda",
+        "Type": "Winget",
+        "Id": "Anaconda.Anaconda3",
+        "Description": "Python distribution for data science and AI"
+      },
+      {
+        "Name": "Jupyter Lab",
+        "Type": "Winget",
+        "Id": "Project.Jupyter.JupyterLab",
+        "Description": "Web-based interactive development environment"
+      },
+      {
+        "Name": "R Studio",
+        "Type": "Winget",
+        "Id": "RStudio.RStudio.OpenSource",
+        "Description": "IDE for R statistical computing"
+      },
+      {
+        "Name": "Khoj",
+        "Type": "Winget",
+        "Id": "Khoj.Khoj",
+        "Description": "AI-powered personal search assistant"
+      }
+    ]
+  },
+  "Development": {
+    "IDEs & Editors": [
+      {
+        "Name": "Visual Studio Code",
+        "Type": "Winget",
+        "Id": "Microsoft.VisualStudioCode",
+        "Description": "Free code editor with extensions"
+      },
+      {
+        "Name": "Visual Studio 2022 Community",
+        "Type": "Winget",
+        "Id": "Microsoft.VisualStudio.2022.Community",
+        "Description": "Full-featured IDE"
+      },
+      {
+        "Name": "JetBrains IntelliJ IDEA",
+        "Type": "Winget",
+        "Id": "JetBrains.IntelliJIDEA.Community",
+        "Description": "Java IDE"
+      },
+      {
+        "Name": "Notepad++",
+        "Type": "Winget",
+        "Id": "Notepad++.Notepad++",
+        "Description": "Advanced text editor"
+      },
+      {
+        "Name": "Sublime Text",
+        "Type": "Winget",
+        "Id": "SublimeHQ.SublimeText.4",
+        "Description": "Sophisticated text editor"
+      },
+      {
+        "Name": "Atom",
+        "Type": "Winget",
+        "Id": "GitHub.Atom",
+        "Description": "Hackable text editor"
+      },
+      {
+        "Name": "PyCharm Community",
+        "Type": "Winget",
+        "Id": "JetBrains.PyCharm.Community",
+        "Description": "Python IDE"
+      },
+      {
+        "Name": "Android Studio",
+        "Type": "Winget",
+        "Id": "Google.AndroidStudio",
+        "Description": "Android development IDE"
+      },
+      {
+        "Name": "Zed Editor",
+        "Type": "GitHub",
+        "Repository": "zed-industries/zed",
+        "AssetPattern": "windows.*\\.zip$",
+        "Description": "High-performance code editor from GitHub"
+      }
+    ],
+    "Version Control": [
+      {
+        "Name": "Git",
+        "Type": "Winget",
+        "Id": "Git.Git",
+        "Description": "Distributed version control system"
+      },
+      {
+        "Name": "GitHub Desktop",
+        "Type": "Winget",
+        "Id": "GitHub.GitHubDesktop",
+        "Description": "GUI for Git and GitHub"
+      },
+      {
+        "Name": "TortoiseGit",
+        "Type": "Winget",
+        "Id": "TortoiseGit.TortoiseGit",
+        "Description": "Git client with Windows shell integration"
+      },
+      {
+        "Name": "Sourcetree",
+        "Type": "Winget",
+        "Id": "Atlassian.Sourcetree",
+        "Description": "Git GUI client"
+      }
+    ],
+    "Databases": [
+      {
+        "Name": "MySQL Workbench",
+        "Type": "Winget",
+        "Id": "Oracle.MySQLWorkbench",
+        "Description": "MySQL database design tool"
+      },
+      {
+        "Name": "DBeaver",
+        "Type": "Winget",
+        "Id": "dbeaver.dbeaver",
+        "Description": "Universal database tool"
+      },
+      {
+        "Name": "PostgreSQL",
+        "Type": "Winget",
+        "Id": "PostgreSQL.PostgreSQL",
+        "Description": "Advanced open source database"
+      },
+      {
+        "Name": "MongoDB Compass",
+        "Type": "Winget",
+        "Id": "MongoDB.Compass.Full",
+        "Description": "MongoDB GUI client"
+      }
+    ],
+    "Runtime & Languages": [
+      {
+        "Name": "Python 3",
+        "Type": "Winget",
+        "Id": "Python.Python.3.12",
+        "Description": "Python programming language"
+      },
+      {
+        "Name": "Node.js",
+        "Type": "Winget",
+        "Id": "OpenJS.NodeJS",
+        "Description": "JavaScript runtime"
+      },
+      {
+        "Name": "Java JDK 17",
+        "Type": "Winget",
+        "Id": "Oracle.JDK.17",
+        "Description": "Java Development Kit"
+      },
+      {
+        "Name": ".NET SDK",
+        "Type": "Winget",
+        "Id": "Microsoft.DotNet.SDK.8",
+        "Description": ".NET development framework"
+      },
+      {
+        "Name": "Go",
+        "Type": "Winget",
+        "Id": "GoLang.Go",
+        "Description": "Go programming language"
+      },
+      {
+        "Name": "Rust",
+        "Type": "Winget",
+        "Id": "Rustlang.Rustup",
+        "Description": "Rust programming language"
+      }
+    ],
+    "API & Tools": [
+      {
+        "Name": "Postman",
+        "Type": "Winget",
+        "Id": "Postman.Postman",
+        "Description": "API development platform"
+      },
+      {
+        "Name": "Insomnia",
+        "Type": "Winget",
+        "Id": "Insomnia.Insomnia",
+        "Description": "REST client"
+      },
+      {
+        "Name": "Docker Desktop",
+        "Type": "Winget",
+        "Id": "Docker.DockerDesktop",
+        "Description": "Containerization platform"
+      },
+      {
+        "Name": "Wireshark",
+        "Type": "Winget",
+        "Id": "WiresharkFoundation.Wireshark",
+        "Description": "Network protocol analyzer"
+      }
+    ],
+    "PowerShell Modules": [
+      {
+        "Name": "Posh-Git",
+        "Type": "PowerShellModule",
+        "ModuleName": "posh-git",
+        "Description": "Git integration for PowerShell"
+      },
+      {
+        "Name": "PowerShellGet",
+        "Type": "PowerShellModule",
+        "ModuleName": "PowerShellGet",
+        "Description": "Package management for PowerShell"
+      },
+      {
+        "Name": "Az PowerShell",
+        "Type": "PowerShellModule",
+        "ModuleName": "Az",
+        "Description": "Azure PowerShell module"
+      }
+    ]
+  },
+  "Internet & Communication": {
+    "Web Browsers": [
+      {
+        "Name": "Google Chrome",
+        "Type": "Winget",
+        "Id": "Google.Chrome",
+        "Description": "Popular web browser"
+      },
+      {
+        "Name": "Mozilla Firefox",
+        "Type": "Winget",
+        "Id": "Mozilla.Firefox",
+        "Description": "Open source web browser"
+      },
+      {
+        "Name": "Microsoft Edge",
+        "Type": "Winget",
+        "Id": "Microsoft.Edge",
+        "Description": "Microsoft's web browser"
+      },
+      {
+        "Name": "Brave Browser",
+        "Type": "Winget",
+        "Id": "Brave.Brave",
+        "Description": "Privacy-focused browser"
+      },
+      {
+        "Name": "Opera",
+        "Type": "Winget",
+        "Id": "Opera.Opera",
+        "Description": "Feature-rich web browser"
+      }
+    ],
+    "Communication": [
+      {
+        "Name": "Discord",
+        "Type": "Winget",
+        "Id": "Discord.Discord",
+        "Description": "Voice and text chat platform"
+      },
+      {
+        "Name": "Slack",
+        "Type": "Winget",
+        "Id": "SlackTechnologies.Slack",
+        "Description": "Team collaboration tool"
+      },
+      {
+        "Name": "Microsoft Teams",
+        "Type": "Winget",
+        "Id": "Microsoft.Teams",
+        "Description": "Microsoft's collaboration platform"
+      },
+      {
+        "Name": "Zoom",
+        "Type": "Winget",
+        "Id": "Zoom.Zoom",
+        "Description": "Video conferencing software"
+      },
+      {
+        "Name": "Skype",
+        "Type": "Winget",
+        "Id": "Microsoft.Skype",
+        "Description": "Video calling service"
+      }
+    ],
+    "Email & Calendar": [
+      {
+        "Name": "Thunderbird",
+        "Type": "Winget",
+        "Id": "Mozilla.Thunderbird",
+        "Description": "Open source email client"
+      },
+      {
+        "Name": "Outlook",
+        "Type": "Winget",
+        "Id": "Microsoft.Office",
+        "Description": "Microsoft email client"
+      },
+      {
+        "Name": "eM Client",
+        "Type": "Winget",
+        "Id": "eMClient.eMClient",
+        "Description": "Email client with calendar and tasks"
+      }
+    ],
+    "File Transfer": [
+      {
+        "Name": "FileZilla",
+        "Type": "Winget",
+        "Id": "TimKosse.FileZilla.Client",
+        "Description": "FTP client"
+      },
+      {
+        "Name": "WinSCP",
+        "Type": "Winget",
+        "Id": "WinSCP.WinSCP",
+        "Description": "SFTP and SCP client"
+      },
+      {
+        "Name": "Cyberduck",
+        "Type": "Winget",
+        "Id": "iterate.Cyberduck",
+        "Description": "FTP, SFTP, WebDAV, S3 client"
+      },
+      {
+        "Name": "Core FTP LE",
+        "Type": "Winget",
+        "Id": "CoreFTP.CoreFTP",
+        "Description": "Free FTP client with SSL/TLS support"
+      },
+      {
+        "Name": "FlashFXP",
+        "Type": "Winget",
+        "Id": "OpenMPT.FlashFXP",
+        "Description": "Professional FTP client"
+      },
+      {
+        "Name": "qBittorrent",
+        "Type": "Winget",
+        "Id": "qBittorrent.qBittorrent",
+        "Description": "BitTorrent client"
+      }
+    ]
+  },
+  "Multimedia": {
+    "Media Players": [
+      {
+        "Name": "VLC Media Player",
+        "Type": "Winget",
+        "Id": "VideoLAN.VLC",
+        "Description": "Universal media player"
+      },
+      {
+        "Name": "MPC-HC",
+        "Type": "Winget",
+        "Id": "clsid2.mpc-hc",
+        "Description": "Lightweight media player"
+      },
+      {
+        "Name": "Spotify",
+        "Type": "Winget",
+        "Id": "Spotify.Spotify",
+        "Description": "Music streaming service"
+      },
+      {
+        "Name": "iTunes",
+        "Type": "Winget",
+        "Id": "Apple.iTunes",
+        "Description": "Apple's media player"
+      },
+      {
+        "Name": "Foobar2000",
+        "Type": "Winget",
+        "Id": "PeterPawlowski.foobar2000",
+        "Description": "Advanced audio player"
+      },
+      {
+        "Name": "PotPlayer",
+        "Type": "Winget",
+        "Id": "Daum.PotPlayer",
+        "Description": "Multimedia player"
+      },
+      {
+        "Name": "K-Lite Codec Pack",
+        "Type": "Winget",
+        "Id": "CodecGuide.K-LiteCodecPack.Full",
+        "Description": "Codec collection"
+      }
+    ],
+    "Audio Editing": [
+      {
+        "Name": "Audacity",
+        "Type": "Winget",
+        "Id": "Audacity.Audacity",
+        "Description": "Open source audio editor"
+      },
+      {
+        "Name": "Reaper",
+        "Type": "Winget",
+        "Id": "Cockos.REAPER",
+        "Description": "Digital audio workstation"
+      },
+      {
+        "Name": "FL Studio",
+        "Type": "Winget",
+        "Id": "ImageLine.FLStudio",
+        "Description": "Music production software"
+      }
+    ],
+    "Video Editing": [
+      {
+        "Name": "OBS Studio",
+        "Type": "Winget",
+        "Id": "OBSProject.OBSStudio",
+        "Description": "Broadcasting and recording software"
+      },
+      {
+        "Name": "DaVinci Resolve",
+        "Type": "Winget",
+        "Id": "Blackmagic.DaVinciResolve",
+        "Description": "Professional video editor"
+      },
+      {
+        "Name": "Handbrake",
+        "Type": "Winget",
+        "Id": "HandBrake.HandBrake",
+        "Description": "Video transcoder"
+      },
+      {
+        "Name": "FFmpeg",
+        "Type": "Winget",
+        "Id": "Gyan.FFmpeg",
+        "Description": "Multimedia framework"
+      }
+    ],
+    "Graphics & Design": [
+      {
+        "Name": "GIMP",
+        "Type": "Winget",
+        "Id": "GIMP.GIMP.3",
+        "Description": "Open source image editor (latest version)"
+      },
+      {
+        "Name": "GIMP 2.10",
+        "Type": "Winget",
+        "Id": "GIMP.GIMP.2",
+        "Description": "Open source image editor (stable version)"
+      },
+      {
+        "Name": "Paint.NET",
+        "Type": "Winget",
+        "Id": "dotPDN.PaintDotNet",
+        "Description": "Simple image editor"
+      },
+      {
+        "Name": "Inkscape",
+        "Type": "Winget",
+        "Id": "Inkscape.Inkscape",
+        "Description": "Vector graphics editor"
+      },
+      {
+        "Name": "Blender",
+        "Type": "Winget",
+        "Id": "BlenderFoundation.Blender",
+        "Description": "3D creation suite"
+      },
+      {
+        "Name": "Adobe Photoshop",
+        "Type": "Winget",
+        "Id": "Adobe.Photoshop.2024",
+        "Description": "Professional image editor"
+      }
+    ]
+  },
+  "Productivity": {
+    "Office Suites": [
+      {
+        "Name": "Microsoft Office 365",
+        "Type": "Winget",
+        "Id": "Microsoft.Office",
+        "Description": "Microsoft's office suite"
+      },
+      {
+        "Name": "LibreOffice",
+        "Type": "Winget",
+        "Id": "TheDocumentFoundation.LibreOffice",
+        "Description": "Open source office suite"
+      },
+      {
+        "Name": "WPS Office",
+        "Type": "Winget",
+        "Id": "Kingsoft.WPSOffice",
+        "Description": "Alternative office suite"
+      }
+    ],
+    "PDF Tools": [
+      {
+        "Name": "Adobe Acrobat Reader",
+        "Type": "Winget",
+        "Id": "Adobe.Acrobat.Reader.64-bit",
+        "Description": "PDF reader"
+      },
+      {
+        "Name": "Foxit Reader",
+        "Type": "Winget",
+        "Id": "Foxit.FoxitReader",
+        "Description": "Alternative PDF reader"
+      },
+      {
+        "Name": "Sumatra PDF",
+        "Type": "Winget",
+        "Id": "SumatraPDF.SumatraPDF",
+        "Description": "Lightweight PDF reader"
+      },
+      {
+        "Name": "PDFCreator",
+        "Type": "Winget",
+        "Id": "pdfforge.PDFCreator",
+        "Description": "PDF creation tool"
+      }
+    ],
+    "Note Taking": [
+      {
+        "Name": "Notion",
+        "Type": "Winget",
+        "Id": "Notion.Notion",
+        "Description": "All-in-one workspace"
+      },
+      {
+        "Name": "Obsidian",
+        "Type": "Winget",
+        "Id": "Obsidian.Obsidian",
+        "Description": "Knowledge management tool"
+      },
+      {
+        "Name": "OneNote",
+        "Type": "Winget",
+        "Id": "Microsoft.OneNote",
+        "Description": "Microsoft's note-taking app"
+      },
+      {
+        "Name": "Evernote",
+        "Type": "Winget",
+        "Id": "Evernote.Evernote",
+        "Description": "Note organization service"
+      }
+    ],
+    "Cloud Storage": [
+      {
+        "Name": "Google Drive",
+        "Type": "Winget",
+        "Id": "Google.GoogleDrive",
+        "Description": "Google's cloud storage"
+      },
+      {
+        "Name": "Dropbox",
+        "Type": "Winget",
+        "Id": "Dropbox.Dropbox",
+        "Description": "Cloud storage service"
+      },
+      {
+        "Name": "OneDrive",
+        "Type": "Winget",
+        "Id": "Microsoft.OneDrive",
+        "Description": "Microsoft's cloud storage"
+      }
+    ]
+  },
+  "Gaming": {
+    "Game Launchers": [
+      {
+        "Name": "Steam",
+        "Type": "Winget",
+        "Id": "Valve.Steam",
+        "Description": "PC gaming platform"
+      },
+      {
+        "Name": "Epic Games Launcher",
+        "Type": "Winget",
+        "Id": "EpicGames.EpicGamesLauncher",
+        "Description": "Epic's game launcher"
+      },
+      {
+        "Name": "EA App",
+        "Type": "Winget",
+        "Id": "ElectronicArts.EADesktop",
+        "Description": "EA's game launcher"
+      },
+      {
+        "Name": "Ubisoft Connect",
+        "Type": "Winget",
+        "Id": "Ubisoft.Connect",
+        "Description": "Ubisoft's game launcher"
+      },
+      {
+        "Name": "Battle.net",
+        "Type": "Winget",
+        "Id": "Blizzard.BattleNet",
+        "Description": "Blizzard's game launcher"
+      },
+      {
+        "Name": "GOG Galaxy",
+        "Type": "Winget",
+        "Id": "GOG.Galaxy",
+        "Description": "DRM-free games platform"
+      },
+      {
+        "Name": "Call of Duty",
+        "Type": "Winget",
+        "Id": "Activision.CallofDuty",
+        "Description": "Call of Duty game launcher"
+      }
+    ],
+    "Gaming Tools": [
+      {
+        "Name": "MSI Afterburner",
+        "Type": "Winget",
+        "Id": "Guru3D.Afterburner",
+        "Description": "GPU overclocking tool"
+      },
+      {
+        "Name": "OBS Studio",
+        "Type": "Winget",
+        "Id": "OBSProject.OBSStudio",
+        "Description": "Game streaming software"
+      },
+      {
+        "Name": "Fraps",
+        "Type": "Winget",
+        "Id": "Beepa.Fraps",
+        "Description": "Game recording software"
+      }
+    ],
+    "Emulation": [
+      {
+        "Name": "RetroArch",
+        "Type": "Winget",
+        "Id": "Libretro.RetroArch",
+        "Description": "Multi-system emulator"
+      },
+      {
+        "Name": "Dolphin Emulator",
+        "Type": "Winget",
+        "Id": "DolphinEmulator.Dolphin",
+        "Description": "GameCube/Wii emulator"
+      }
+    ],
+    "Games": [
+      {
+        "Name": "Bodycam",
+        "Type": "GitHub",
+        "Repository": "bodycam-game/bodycam",
+        "AssetPattern": "",
+        "Description": "Ultra-realistic tactical FPS game"
+      }
+    ]
+  },
+  "Utilities": {
+    "System Tools": [
+      {
+        "Name": "PowerToys",
+        "Type": "Winget",
+        "Id": "Microsoft.PowerToys",
+        "Description": "Windows utilities collection"
+      },
+      {
+        "Name": "Process Monitor",
+        "Type": "Winget",
+        "Id": "Microsoft.Sysinternals.ProcessMonitor",
+        "Description": "System monitoring tool"
+      },
+      {
+        "Name": "TreeSize",
+        "Type": "Winget",
+        "Id": "JAMSoftware.TreeSize.Free",
+        "Description": "Disk space analyzer"
+      },
+      {
+        "Name": "CCleaner",
+        "Type": "Winget",
+        "Id": "Piriform.CCleaner",
+        "Description": "System cleaner"
+      },
+      {
+        "Name": "Speccy",
+        "Type": "Winget",
+        "Id": "Piriform.Speccy",
+        "Description": "System information tool"
+      },
+      {
+        "Name": "HWiNFO",
+        "Type": "Winget",
+        "Id": "REALiX.HWiNFO",
+        "Description": "Hardware information tool"
+      },
+      {
+        "Name": "CPU-Z",
+        "Type": "Winget",
+        "Id": "CPUID.CPU-Z",
+        "Description": "CPU and system information"
+      },
+      {
+        "Name": "GPU-Z",
+        "Type": "Winget",
+        "Id": "TechPowerUp.GPU-Z",
+        "Description": "Graphics card information"
+      },
+      {
+        "Name": "CrystalDiskInfo",
+        "Type": "Winget",
+        "Id": "CrystalDewWorld.CrystalDiskInfo",
+        "Description": "Hard disk health monitoring"
+      },
+      {
+        "Name": "Windows Terminal",
+        "Type": "GitHub",
+        "Repository": "microsoft/terminal",
+        "AssetPattern": "\\.msixbundle$",
+        "Description": "Modern terminal application from Microsoft"
+      },
+      {
+        "Name": "PowerShell Core",
+        "Type": "GitHub",
+        "Repository": "PowerShell/PowerShell",
+        "AssetPattern": "win-x64\\.msi$",
+        "Description": "Cross-platform PowerShell from GitHub"
+      },
+      {
+        "Name": "Glary Utilities",
+        "Type": "Winget",
+        "Id": "Glarysoft.GlaryUtilities",
+        "Description": "System optimization and maintenance suite"
+      },
+      {
+        "Name": "Stardock Fences 4",
+        "Type": "Winget",
+        "Id": "Stardock.Fences.4",
+        "Description": "Desktop organization and icon management tool (Version 4)"
+      },
+      {
+        "Name": "Stardock Fences 5",
+        "Type": "Winget",
+        "Id": "Stardock.Fences.5",
+        "Description": "Desktop organization and icon management tool (Latest Version 5)"
+      },
+      {
+        "Name": "Stardock Curtains",
+        "Type": "Winget",
+        "Id": "Stardock.Curtains",
+        "Description": "Add style and visual flair to Windows with themes"
+      },
+      {
+        "Name": "Stardock Start10",
+        "Type": "Winget",
+        "Id": "Stardock.Start10",
+        "Description": "Restore the classic Windows 7 Start menu to Windows 10"
+      },
+      {
+        "Name": "Stardock Start11 v1",
+        "Type": "Winget",
+        "Id": "Stardock.Start11.v1",
+        "Description": "Customize Windows 11 Start menu and taskbar (Version 1)"
+      },
+      {
+        "Name": "Stardock Start11 v2",
+        "Type": "Winget",
+        "Id": "Stardock.Start11.v2",
+        "Description": "Customize Windows 11 Start menu and taskbar (Latest Version 2)"
+      },
+      {
+        "Name": "Stardock WindowBlinds",
+        "Type": "EXE",
+        "Url": "https://www.stardock.com/products/windowblinds/download",
+        "Description": "Customize Windows appearance with visual styles and themes"
+      },
+      {
+        "Name": "Stardock DeskScapes",
+        "Type": "EXE",
+        "Url": "https://www.stardock.com/products/deskscapes/download",
+        "Description": "Animated desktop wallpapers and screensavers"
+      },
+      {
+        "Name": "Stardock CursorFX",
+        "Type": "EXE",
+        "Url": "https://www.stardock.com/products/cursorfx/download",
+        "Description": "Enhanced cursor effects and animations"
+      },
+      {
+        "Name": "Stardock WindowFX",
+        "Type": "EXE",
+        "Url": "https://www.stardock.com/products/windowfx/download",
+        "Description": "Special effects for window transitions and animations"
+      },
+      {
+        "Name": "Stardock Groupy",
+        "Type": "EXE",
+        "Url": "https://www.stardock.com/products/groupy/download",
+        "Description": "Organize desktop applications into grouped tabs"
+      },
+      {
+        "Name": "Stardock Multiplicity",
+        "Type": "EXE",
+        "Url": "https://www.stardock.com/products/multiplicity/download",
+        "Description": "Control multiple computers with one keyboard and mouse"
+      },
+      {
+        "Name": "Stardock IconPackager",
+        "Type": "EXE",
+        "Url": "https://www.stardock.com/products/iconpackager/download",
+        "Description": "Change Windows icons with themed icon packages"
+      },
+      {
+        "Name": "Stardock SoundPackager",
+        "Type": "EXE",
+        "Url": "https://www.stardock.com/products/soundpackager/download",
+        "Description": "Customize Windows system sounds with themed sound packages"
+      },
+      {
+        "Name": "Stardock Object Desktop Suite",
+        "Type": "EXE",
+        "Url": "https://www.stardock.com/products/odnt/download",
+        "Description": "Complete collection of Stardock desktop enhancement tools"
+      }
+    ],
+    "File Management": [
+      {
+        "Name": "7-Zip",
+        "Type": "Winget",
+        "Id": "7zip.7zip",
+        "Description": "File archiver"
+      },
+      {
+        "Name": "WinRAR",
+        "Type": "Winget",
+        "Id": "RARLab.WinRAR",
+        "Description": "Archive manager"
+      },
+      {
+        "Name": "Everything",
+        "Type": "Winget",
+        "Id": "voidtools.Everything",
+        "Description": "File search utility"
+      },
+      {
+        "Name": "FreeCommander",
+        "Type": "Winget",
+        "Id": "Marek.FreeCommander",
+        "Description": "File manager"
+      },
+      {
+        "Name": "Double Commander",
+        "Type": "Winget",
+        "Id": "alexx2000.DoubleCommander",
+        "Description": "Cross-platform twin-panel file manager"
+      }
+    ],
+    "Security": [
+      {
+        "Name": "Malwarebytes",
+        "Type": "Winget",
+        "Id": "Malwarebytes.Malwarebytes",
+        "Description": "Anti-malware software"
+      },
+      {
+        "Name": "Bitdefender",
+        "Type": "Winget",
+        "Id": "Bitdefender.Bitdefender",
+        "Description": "Antivirus software"
+      },
+      {
+        "Name": "KeePass",
+        "Type": "Winget",
+        "Id": "DominikReichl.KeePass",
+        "Description": "Password manager"
+      },
+      {
+        "Name": "Bitwarden",
+        "Type": "Winget",
+        "Id": "Bitwarden.Bitwarden",
+        "Description": "Password manager"
+      }
+    ],
+    "Remote Access": [
+      {
+        "Name": "PuTTY",
+        "Type": "Winget",
+        "Id": "PuTTY.PuTTY",
+        "Description": "SSH and telnet client"
+      },
+      {
+        "Name": "KiTTY",
+        "Type": "Winget",
+        "Id": "9bis.KiTTY",
+        "Description": "Enhanced PuTTY fork with additional features"
+      },
+      {
+        "Name": "MobaXterm",
+        "Type": "Winget",
+        "Id": "Mobatek.MobaXterm",
+        "Description": "Enhanced terminal with SSH, X11, RDP, VNC"
+      },
+      {
+        "Name": "Windows Terminal",
+        "Type": "Winget",
+        "Id": "Microsoft.WindowsTerminal",
+        "Description": "Modern terminal with SSH support"
+      },
+      {
+        "Name": "TeamViewer",
+        "Type": "Winget",
+        "Id": "TeamViewer.TeamViewer",
+        "Description": "Remote desktop software"
+      },
+      {
+        "Name": "AnyDesk",
+        "Type": "Winget",
+        "Id": "AnyDeskSoftwareGmbH.AnyDesk",
+        "Description": "Remote desktop tool"
+      },
+      {
+        "Name": "Chrome Remote Desktop",
+        "Type": "Winget",
+        "Id": "Google.ChromeRemoteDesktop",
+        "Description": "Google's remote access tool"
+      }
+    ]
+  },
+  "Ethical Hacking & Security Testing": {
+    "Network Security": [
+      {
+        "Name": "Nmap",
+        "Type": "Winget",
+        "Id": "Insecure.Nmap",
+        "Description": "Network discovery and security auditing"
+      },
+      {
+        "Name": "Wireshark",
+        "Type": "Winget",
+        "Id": "WiresharkFoundation.Wireshark",
+        "Description": "Network protocol analyzer"
+      },
+      {
+        "Name": "Angry IP Scanner",
+        "Type": "Winget",
+        "Id": "angryziber.AngryIPScanner",
+        "Description": "Fast IP and port scanner"
+      },
+      {
+        "Name": "Advanced Port Scanner",
+        "Type": "Winget",
+        "Id": "Famatech.AdvancedPortScanner",
+        "Description": "Network port scanner"
+      },
+      {
+        "Name": "NetworkMiner",
+        "Type": "GitHub",
+        "Repository": "NetresecAB/NetworkMiner",
+        "AssetPattern": "NetworkMiner.*\\.zip$",
+        "Description": "Network forensic analysis tool"
+      }
+    ],
+    "Vulnerability Assessment": [
+      {
+        "Name": "OpenVAS",
+        "Type": "GitHub",
+        "Repository": "greenbone/openvas-scanner",
+        "AssetPattern": "",
+        "Description": "Vulnerability scanner (requires setup)"
+      },
+      {
+        "Name": "Nuclei",
+        "Type": "GitHub",
+        "Repository": "projectdiscovery/nuclei",
+        "AssetPattern": "nuclei.*windows.*\\.zip$",
+        "Description": "Fast vulnerability scanner"
+      },
+      {
+        "Name": "OWASP ZAP",
+        "Type": "Winget",
+        "Id": "ZAP.ZAP",
+        "Description": "Web application security scanner"
+      },
+      {
+        "Name": "Burp Suite Community",
+        "Type": "Winget",
+        "Id": "PortSwigger.BurpSuite.Community",
+        "Description": "Web vulnerability scanner"
+      },
+      {
+        "Name": "Nikto",
+        "Type": "GitHub",
+        "Repository": "sullo/nikto",
+        "AssetPattern": "",
+        "Description": "Web server scanner (Perl-based)"
+      }
+    ],
+    "Password Testing": [
+      {
+        "Name": "Hashcat",
+        "Type": "GitHub",
+        "Repository": "hashcat/hashcat",
+        "AssetPattern": "hashcat.*windows.*\\.7z$",
+        "Description": "Advanced password recovery"
+      },
+      {
+        "Name": "John the Ripper",
+        "Type": "GitHub",
+        "Repository": "openwall/john",
+        "AssetPattern": "john.*win.*\\.zip$",
+        "Description": "Password cracking tool"
+      },
+      {
+        "Name": "Hydra",
+        "Type": "GitHub",
+        "Repository": "vanhauser-thc/thc-hydra",
+        "AssetPattern": "hydra.*windows.*\\.zip$",
+        "Description": "Network login cracker"
+      },
+      {
+        "Name": "CrackMapExec",
+        "Type": "GitHub",
+        "Repository": "Porchetta-Industries/CrackMapExec",
+        "AssetPattern": "",
+        "Description": "Network service exploitation tool"
+      },
+      {
+        "Name": "Medusa",
+        "Type": "GitHub",
+        "Repository": "jmk-foofus/medusa",
+        "AssetPattern": "",
+        "Description": "Parallel network login brute-forcer"
+      }
+    ],
+    "Web Application Testing": [
+      {
+        "Name": "SQLMap",
+        "Type": "GitHub",
+        "Repository": "sqlmapproject/sqlmap",
+        "AssetPattern": "",
+        "Description": "SQL injection testing tool"
+      },
+      {
+        "Name": "DirBuster",
+        "Type": "GitHub",
+        "Repository": "KajanM/DirBuster",
+        "AssetPattern": "",
+        "Description": "Web directory brute forcer"
+      },
+      {
+        "Name": "Gobuster",
+        "Type": "GitHub",
+        "Repository": "OJ/gobuster",
+        "AssetPattern": "gobuster.*windows.*\\.zip$",
+        "Description": "Directory/file brute forcer"
+      },
+      {
+        "Name": "WPScan",
+        "Type": "GitHub",
+        "Repository": "wpscanteam/wpscan",
+        "AssetPattern": "",
+        "Description": "WordPress vulnerability scanner"
+      },
+      {
+        "Name": "Commix",
+        "Type": "GitHub",
+        "Repository": "commixproject/commix",
+        "AssetPattern": "",
+        "Description": "Command injection exploitation tool"
+      }
+    ],
+    "Exploitation Frameworks": [
+      {
+        "Name": "Metasploit Framework",
+        "Type": "GitHub",
+        "Repository": "rapid7/metasploit-framework",
+        "AssetPattern": "",
+        "Description": "Penetration testing framework"
+      },
+      {
+        "Name": "Empire",
+        "Type": "GitHub",
+        "Repository": "EmpireProject/Empire",
+        "AssetPattern": "",
+        "Description": "PowerShell post-exploitation agent"
+      },
+      {
+        "Name": "Covenant",
+        "Type": "GitHub",
+        "Repository": "cobbr/Covenant",
+        "AssetPattern": "",
+        "Description": ".NET command and control framework"
+      },
+      {
+        "Name": "Cobalt Strike Trial",
+        "Type": "GitHub",
+        "Repository": "cobaltstrike/cobaltstrike",
+        "AssetPattern": "",
+        "Description": "Advanced threat emulation platform"
+      },
+      {
+        "Name": "SliversC2",
+        "Type": "GitHub",
+        "Repository": "BishopFox/sliver",
+        "AssetPattern": "sliver.*windows.*\\.zip$",
+        "Description": "Cross-platform adversary emulation framework"
+      }
+    ],
+    "Forensics & Analysis": [
+      {
+        "Name": "Autopsy",
+        "Type": "Winget",
+        "Id": "SleuthKitLabs.Autopsy",
+        "Description": "Digital forensics platform"
+      },
+      {
+        "Name": "Volatility",
+        "Type": "GitHub",
+        "Repository": "volatilityfoundation/volatility3",
+        "AssetPattern": "",
+        "Description": "Memory forensics framework"
+      },
+      {
+        "Name": "YARA",
+        "Type": "GitHub",
+        "Repository": "VirusTotal/yara",
+        "AssetPattern": "yara.*win64\\.zip$",
+        "Description": "Malware identification and classification"
+      },
+      {
+        "Name": "Binwalk",
+        "Type": "GitHub",
+        "Repository": "ReFirmLabs/binwalk",
+        "AssetPattern": "",
+        "Description": "Firmware analysis tool"
+      },
+      {
+        "Name": "Radare2",
+        "Type": "GitHub",
+        "Repository": "radareorg/radare2",
+        "AssetPattern": "radare2.*w64\\.zip$",
+        "Description": "Reverse engineering framework"
+      }
+    ],
+    "Social Engineering": [
+      {
+        "Name": "SET (Social Engineer Toolkit)",
+        "Type": "GitHub",
+        "Repository": "trustedsec/social-engineer-toolkit",
+        "AssetPattern": "",
+        "Description": "Social engineering penetration testing"
+      },
+      {
+        "Name": "BeEF",
+        "Type": "GitHub",
+        "Repository": "beefproject/beef",
+        "AssetPattern": "",
+        "Description": "Browser exploitation framework"
+      },
+      {
+        "Name": "Gophish",
+        "Type": "GitHub",
+        "Repository": "gophish/gophish",
+        "AssetPattern": "gophish.*windows.*\\.zip$",
+        "Description": "Phishing campaign toolkit"
+      },
+      {
+        "Name": "King Phisher",
+        "Type": "GitHub",
+        "Repository": "rsmusllp/king-phisher",
+        "AssetPattern": "",
+        "Description": "Phishing campaign toolkit"
+      },
+      {
+        "Name": "Evilginx2",
+        "Type": "GitHub",
+        "Repository": "kgretzky/evilginx2",
+        "AssetPattern": "evilginx.*windows.*\\.zip$",
+        "Description": "Advanced phishing framework"
+      }
+    ],
+    "Wireless Security": [
+      {
+        "Name": "Aircrack-ng",
+        "Type": "GitHub",
+        "Repository": "aircrack-ng/aircrack-ng",
+        "AssetPattern": "aircrack.*windows.*\\.zip$",
+        "Description": "WiFi security auditing tools"
+      },
+      {
+        "Name": "Reaver",
+        "Type": "GitHub",
+        "Repository": "t6x/reaver-wps-fork-t6x",
+        "AssetPattern": "",
+        "Description": "WPS PIN attack tool"
+      },
+      {
+        "Name": "Kismet",
+        "Type": "GitHub",
+        "Repository": "kismetwireless/kismet",
+        "AssetPattern": "",
+        "Description": "Wireless network detector and sniffer"
+      },
+      {
+        "Name": "WiFi Pineapple Software",
+        "Type": "GitHub",
+        "Repository": "hak5/wifipineapple-modules",
+        "AssetPattern": "",
+        "Description": "WiFi penetration testing platform"
+      },
+      {
+        "Name": "Wash",
+        "Type": "GitHub",
+        "Repository": "t6x/reaver-wps-fork-t6x",
+        "AssetPattern": "",
+        "Description": "WPS-enabled access point scanner"
+      }
+    ],
+    "Mobile Security": [
+      {
+        "Name": "MobSF",
+        "Type": "GitHub",
+        "Repository": "MobSF/Mobile-Security-Framework-MobSF",
+        "AssetPattern": "",
+        "Description": "Mobile security testing framework"
+      },
+      {
+        "Name": "APKTool",
+        "Type": "GitHub",
+        "Repository": "iBotPeaches/Apktool",
+        "AssetPattern": "apktool.*\\.jar$",
+        "Description": "Android APK reverse engineering"
+      },
+      {
+        "Name": "Frida",
+        "Type": "GitHub",
+        "Repository": "frida/frida",
+        "AssetPattern": "frida.*windows.*\\.exe$",
+        "Description": "Dynamic instrumentation toolkit"
+      },
+      {
+        "Name": "JADX",
+        "Type": "GitHub",
+        "Repository": "skylot/jadx",
+        "AssetPattern": "jadx.*\\.zip$",
+        "Description": "Android dex to Java decompiler"
+      },
+      {
+        "Name": "Drozer",
+        "Type": "GitHub",
+        "Repository": "WithSecureLabs/drozer",
+        "AssetPattern": "",
+        "Description": "Android security testing framework"
+      }
+    ],
+    "Reconnaissance": [
+      {
+        "Name": "TheHarvester",
+        "Type": "GitHub",
+        "Repository": "laramies/theHarvester",
+        "AssetPattern": "",
+        "Description": "Email, subdomain and people names harvester"
+      },
+      {
+        "Name": "Recon-ng",
+        "Type": "GitHub",
+        "Repository": "lanmaster53/recon-ng",
+        "AssetPattern": "",
+        "Description": "Web reconnaissance framework"
+      },
+      {
+        "Name": "Sublist3r",
+        "Type": "GitHub",
+        "Repository": "aboul3la/Sublist3r",
+        "AssetPattern": "",
+        "Description": "Subdomain enumeration tool"
+      },
+      {
+        "Name": "Amass",
+        "Type": "GitHub",
+        "Repository": "OWASP/Amass",
+        "AssetPattern": "amass.*windows.*\\.zip$",
+        "Description": "Network mapping and subdomain enumeration"
+      },
+      {
+        "Name": "Maltego",
+        "Type": "Winget",
+        "Id": "PatervaLimited.Maltego",
+        "Description": "Link analysis and data mining platform"
+      }
+    ]
+  }
+}

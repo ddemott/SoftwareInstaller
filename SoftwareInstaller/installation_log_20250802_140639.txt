@@ -1,0 +1,2 @@
+08/02/2025 14:06:56: Installing Wireshark (ID: WiresharkFoundation.Wireshark) via Winget
+08/02/2025 14:07:31: SUCCESS - Wireshark installed
