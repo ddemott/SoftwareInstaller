@@ -1,2 +1,0 @@
-08/02/2025 14:02:58: Installing GIMP (ID: GIMP.GIMP) via Winget
-08/02/2025 14:03:00: FAILED - GIMP installation failed with exit code -1978335212

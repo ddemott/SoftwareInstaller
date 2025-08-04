@@ -99,7 +99,86 @@
       {
         "Name": "Stable Diffusion WebUI (Automatic1111)",
         "Type": "CustomInstall",
+        "Repository": "AUTOMATIC1111/stable-diffusion-webui",
+        "InstallPath": "",
+        "Dependencies": ["python"],
+        "StartupScript": "@echo off\ncd /d \"{INSTALL_PATH}\"\ncall webui-user.bat\npause",
+        "ShortcutName": "Start Stable Diffusion WebUI",
+        "PostInstallInstructions": [
+          "Download a Stable Diffusion model (e.g., from Hugging Face)",
+          "Place the model in: {INSTALL_PATH}\\models\\Stable-diffusion\\",
+          "Run the desktop shortcut to start the WebUI",
+          "The first run will install additional dependencies"
+        ],
         "Description": "Automatic1111's Stable Diffusion WebUI for AI image generation"
+      },
+      {
+        "Name": "Text Generation WebUI (oobabooga)",
+        "Type": "CustomInstall",
+        "Repository": "oobabooga/text-generation-webui",
+        "InstallPath": "",
+        "Dependencies": ["python"],
+        "StartupScript": "@echo off\ncd /d \"{INSTALL_PATH}\"\ncall start_windows.bat\npause",
+        "ShortcutName": "Start Text Generation WebUI",
+        "PostInstallInstructions": [
+          "Download a language model (e.g., from Hugging Face)",
+          "Place the model in: {INSTALL_PATH}\\models\\",
+          "Run the desktop shortcut to start the WebUI",
+          "The first run will install additional dependencies"
+        ],
+        "Description": "Local text generation WebUI for LLMs and chatbots"
+      },
+      {
+        "Name": "ComfyUI",
+        "Type": "CustomInstall",
+        "Repository": "comfyanonymous/ComfyUI",
+        "InstallPath": "",
+        "Dependencies": ["python"],
+        "StartupScript": "@echo off\ncd /d \"{INSTALL_PATH}\"\npython main.py\npause",
+        "ShortcutName": "Start ComfyUI",
+        "PostInstallInstructions": [
+          "Download AI models and place them in the appropriate folders:",
+          "Checkpoints: {INSTALL_PATH}\\models\\checkpoints\\",
+          "VAE: {INSTALL_PATH}\\models\\vae\\",
+          "LoRA: {INSTALL_PATH}\\models\\loras\\",
+          "Run the desktop shortcut to start ComfyUI",
+          "Access the interface at http://127.0.0.1:8188"
+        ],
+        "Description": "Node-based AI image generation interface with advanced workflow capabilities"
+      },
+      {
+        "Name": "InvokeAI",
+        "Type": "CustomInstall",
+        "Repository": "invoke-ai/InvokeAI",
+        "InstallPath": "",
+        "Dependencies": ["python"],
+        "StartupScript": "@echo off\ncd /d \"{INSTALL_PATH}\"\ncall .venv\\Scripts\\activate.bat\ninvokeai-web\npause",
+        "ShortcutName": "Start InvokeAI",
+        "PostInstallInstructions": [
+          "Run the initial configuration: invokeai-configure",
+          "Download models through the web interface or place manually in:",
+          "Models: {INSTALL_PATH}\\invokeai\\models\\",
+          "Run the desktop shortcut to start InvokeAI",
+          "Access the web interface at http://localhost:9090"
+        ],
+        "Description": "Professional AI image generation tool with advanced features and workflows"
+      },
+      {
+        "Name": "Whisper WebUI",
+        "Type": "CustomInstall",
+        "Repository": "jhj0517/Whisper-WebUI",
+        "InstallPath": "",
+        "Dependencies": ["python"],
+        "StartupScript": "@echo off\ncd /d \"{INSTALL_PATH}\"\npython app.py\npause",
+        "ShortcutName": "Start Whisper WebUI",
+        "PostInstallInstructions": [
+          "The first run will download the base Whisper model automatically",
+          "For better performance, download larger models through the interface",
+          "Run the desktop shortcut to start Whisper WebUI",
+          "Access the interface at http://127.0.0.1:7860",
+          "Upload audio/video files for transcription and translation"
+        ],
+        "Description": "Web interface for OpenAI Whisper speech recognition and transcription"
       },
       {
         "Name": "Stable Diffusion WebUI Forge",
@@ -860,6 +939,20 @@
         "Type": "Winget",
         "Id": "CrystalDewWorld.CrystalDiskInfo",
         "Description": "Hard disk health monitoring"
+      },
+      {
+        "Name": "CrystalDiskInfo Portable",
+        "Type": "GitHub",
+        "Repository": "hiyohiyo/CrystalDiskInfo",
+        "AssetPattern": "CrystalDiskInfo.*Portable.*\\.zip$",
+        "InstallPath": "",
+        "Description": "Hard disk health monitoring (Portable version)"
+      },
+      {
+        "Name": "MemTest86",
+        "Type": "Custom",
+        "Url": "https://www.memtest86.com/download.htm",
+        "Description": "Memory testing tool for detecting RAM errors and instability"
       },
       {
         "Name": "Windows Terminal",

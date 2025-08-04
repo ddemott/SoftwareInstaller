@@ -3,7 +3,18 @@
 # Supports Winget, MSI, EXE, PowerShell Modules, and PowerShell Scripts
 
 # ===== GLOBAL VARIABLES =====
-$LogPath = ".\installation_log_$(Get-Date -Format 'yyyyMMdd_HHmmss').txt"
+# Get the directory where this script is located
+$ScriptDirectory = $null
+if ($MyInvocation.ScriptName) {
+    $ScriptDirectory = Split-Path -Parent $MyInvocation.ScriptName
+} elseif ($PSCommandPath) {
+    $ScriptDirectory = Split-Path -Parent $PSCommandPath
+} else {
+    # Fallback: assume script is in current directory
+    $ScriptDirectory = $PWD.Path
+}
+
+$LogPath = Join-Path $ScriptDirectory "installation_log_$(Get-Date -Format 'yyyyMMdd_HHmmss').txt"
 
 # ===== UTILITY FUNCTIONS =====
 function Get-InstalledSoftware {
@@ -73,7 +84,7 @@ function Install-WingetSoftware {
         Write-Host "Installing $Name via Winget..." -ForegroundColor Cyan
         Add-Content -Path $LogPath -Value "$(Get-Date): Installing $Name (ID: $Id) via Winget"
         
-        $result = winget install --id $Id --accept-package-agreements --accept-source-agreements --silent
+        winget install --id $Id --accept-package-agreements --accept-source-agreements
         
         if ($LASTEXITCODE -eq 0) {
             Write-Host "✅ $Name installed successfully" -ForegroundColor Green
@@ -95,7 +106,7 @@ function Install-MSIPackage {
     param(
         [string]$Name,
         [string]$Url,
-        [string]$Arguments = "/quiet /norestart"
+        [string]$Arguments = ""
     )
     
     try {
@@ -128,7 +139,7 @@ function Install-EXEPackage {
     param(
         [string]$Name,
         [string]$Url,
-        [string]$Arguments = "/S"
+        [string]$Arguments = ""
     )
     
     try {
@@ -214,43 +225,60 @@ function Install-PowerShellScript {
     }
 }
 
-function Install-StableDiffusionWebUI {
-    param([string]$Name)
+function Install-GitHubProject {
+    param(
+        [string]$Name,
+        [string]$Repository,
+        [string]$InstallPath = "",
+        [string[]]$Dependencies = @(),
+        [string]$StartupScript = "",
+        [string]$StartupCommand = "",
+        [string]$ShortcutName = "",
+        [string[]]$PostInstallInstructions = @()
+    )
     
     try {
-        Write-Host "Installing Stable Diffusion WebUI (Automatic1111)..." -ForegroundColor Cyan
-        Add-Content -Path $LogPath -Value "$(Get-Date): Installing Stable Diffusion WebUI"
+        Write-Host "Installing $Name..." -ForegroundColor Cyan
+        Add-Content -Path $LogPath -Value "$(Get-Date): Installing $Name from GitHub repository $Repository"
         
-        # Check for Git
+        # Check for Git first
         if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
             Write-Host "❌ Git is required but not found. Please install Git first." -ForegroundColor Red
             Add-Content -Path $LogPath -Value "$(Get-Date): FAILED - Git not found"
             return $false
         }
         
-        # Check for Python
-        if (-not (Get-Command python -ErrorAction SilentlyContinue)) {
-            Write-Host "❌ Python is required but not found. Please install Python 3.10+ first." -ForegroundColor Red
-            Add-Content -Path $LogPath -Value "$(Get-Date): FAILED - Python not found"
-            return $false
+        # Check for required dependencies
+        foreach ($dependency in $Dependencies) {
+            if (-not (Get-Command $dependency -ErrorAction SilentlyContinue)) {
+                Write-Host "❌ $dependency is required but not found. Please install $dependency first." -ForegroundColor Red
+                Add-Content -Path $LogPath -Value "$(Get-Date): FAILED - $dependency not found"
+                return $false
+            }
         }
         
-        # Create installation directory
-        $installPath = "$env:USERPROFILE\stable-diffusion-webui"
-        if (Test-Path $installPath) {
-            Write-Host "⚠️ Stable Diffusion WebUI directory already exists at $installPath" -ForegroundColor Yellow
+        # Set installation path (use provided path or generate from name)
+        if ([string]::IsNullOrEmpty($InstallPath)) {
+            $InstallPath = "$env:USERPROFILE\$($Name -replace '[^\w\-_]', '-')"
+        }
+        
+        # Handle existing installation
+        if (Test-Path $InstallPath) {
+            Write-Host "⚠️ $Name directory already exists at $InstallPath" -ForegroundColor Yellow
             Write-Host "Do you want to update it? (y/n): " -ForegroundColor Cyan -NoNewline
             $update = Read-Host
             if ($update -eq 'y' -or $update -eq 'Y') {
-                Set-Location $installPath
+                Set-Location $InstallPath
                 git pull
+                Write-Host "✅ $Name updated successfully" -ForegroundColor Green
             } else {
                 Write-Host "Installation cancelled." -ForegroundColor Yellow
                 return $false
             }
         } else {
-            Write-Host "Cloning Stable Diffusion WebUI repository..." -ForegroundColor Cyan
-            git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git $installPath
+            # Clone the repository
+            Write-Host "Cloning $Name repository..." -ForegroundColor Cyan
+            git clone "https://github.com/$Repository.git" $InstallPath
             if ($LASTEXITCODE -ne 0) {
                 Write-Host "❌ Failed to clone repository" -ForegroundColor Red
                 Add-Content -Path $LogPath -Value "$(Get-Date): FAILED - Git clone failed"
@@ -258,32 +286,32 @@ function Install-StableDiffusionWebUI {
             }
         }
         
-        # Create startup script
-        $startupScript = @"
-@echo off
-cd /d "$installPath"
-call webui-user.bat
-pause
-"@
+        # Create startup script if provided
+        if (-not [string]::IsNullOrEmpty($StartupScript) -and -not [string]::IsNullOrEmpty($ShortcutName)) {
+            $startupPath = "$env:USERPROFILE\Desktop\$ShortcutName.bat"
+            $scriptContent = $StartupScript -replace '\{INSTALL_PATH\}', $InstallPath
+            Set-Content -Path $startupPath -Value $scriptContent -Encoding ASCII
+            Write-Host "🚀 Desktop shortcut created: $startupPath" -ForegroundColor Cyan
+        }
         
-        $startupPath = "$env:USERPROFILE\Desktop\Start Stable Diffusion WebUI.bat"
-        Set-Content -Path $startupPath -Value $startupScript -Encoding ASCII
+        Write-Host "✅ $Name installed successfully" -ForegroundColor Green
+        Write-Host "📍 Installation location: $InstallPath" -ForegroundColor Cyan
         
-        Write-Host "✅ Stable Diffusion WebUI installed successfully" -ForegroundColor Green
-        Write-Host "📍 Installation location: $installPath" -ForegroundColor Cyan
-        Write-Host "🚀 Desktop shortcut created: $startupPath" -ForegroundColor Cyan
-        Write-Host ""
-        Write-Host "📋 Next steps:" -ForegroundColor Yellow
-        Write-Host "   1. Download a Stable Diffusion model (e.g., from Hugging Face)" -ForegroundColor Gray
-        Write-Host "   2. Place the model in: $installPath\models\Stable-diffusion\" -ForegroundColor Gray
-        Write-Host "   3. Run the desktop shortcut to start the WebUI" -ForegroundColor Gray
-        Write-Host "   4. The first run will install additional dependencies" -ForegroundColor Gray
+        # Display post-install instructions
+        if ($PostInstallInstructions.Count -gt 0) {
+            Write-Host ""
+            Write-Host "📋 Next steps:" -ForegroundColor Yellow
+            for ($i = 0; $i -lt $PostInstallInstructions.Count; $i++) {
+                $instruction = $PostInstallInstructions[$i] -replace '\{INSTALL_PATH\}', $InstallPath
+                Write-Host "   $($i + 1). $instruction" -ForegroundColor Gray
+            }
+        }
         
-        Add-Content -Path $LogPath -Value "$(Get-Date): SUCCESS - Stable Diffusion WebUI installed"
+        Add-Content -Path $LogPath -Value "$(Get-Date): SUCCESS - $Name installed from GitHub"
         return $true
     } catch {
-        Write-Host "❌ Error installing Stable Diffusion WebUI: $($_.Exception.Message)" -ForegroundColor Red
-        Add-Content -Path $LogPath -Value "$(Get-Date): ERROR - Stable Diffusion WebUI installation error: $($_.Exception.Message)"
+        Write-Host "❌ Error installing $Name`: $($_.Exception.Message)" -ForegroundColor Red
+        Add-Content -Path $LogPath -Value "$(Get-Date): ERROR - $Name installation error: $($_.Exception.Message)"
         return $false
     }
 }
@@ -363,7 +391,7 @@ function Install-GitHubRelease {
                     $success = Install-EXEPackage -Name $Name -Url "file://$tempFile" -Arguments $Arguments
                 } else {
                     Write-Host "Installing executable..." -ForegroundColor Cyan
-                    $process = Start-Process -FilePath $tempFile -ArgumentList "/S" -Wait -PassThru
+                    $process = Start-Process -FilePath $tempFile -Wait -PassThru
                     $success = ($process.ExitCode -eq 0)
                 }
             }
@@ -372,7 +400,7 @@ function Install-GitHubRelease {
                     $success = Install-MSIPackage -Name $Name -Url "file://$tempFile" -Arguments $Arguments
                 } else {
                     Write-Host "Installing MSI package..." -ForegroundColor Cyan
-                    $process = Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$tempFile`" /quiet /norestart" -Wait -PassThru
+                    $process = Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$tempFile`"" -Wait -PassThru
                     $success = ($process.ExitCode -eq 0)
                 }
             }
@@ -455,7 +483,7 @@ function Install-GitHubRelease {
     }
 }
 
-function Search-WingetPackages {
+function Search-WingetPackage {
     param([string]$SearchTerm)
     
     try {
@@ -465,16 +493,80 @@ function Search-WingetPackages {
         }
         
         Write-Host "Searching Winget for: $SearchTerm..." -ForegroundColor Cyan
-        $searchResults = winget search $SearchTerm --accept-source-agreements 2>$null
+        
+        # Use Start-Process to better control encoding and output
+        $processInfo = New-Object System.Diagnostics.ProcessStartInfo
+        $processInfo.FileName = "winget"
+        $processInfo.Arguments = "search `"$SearchTerm`" --accept-source-agreements"
+        $processInfo.RedirectStandardOutput = $true
+        $processInfo.RedirectStandardError = $true
+        $processInfo.UseShellExecute = $false
+        $processInfo.CreateNoWindow = $true
+        $processInfo.StandardOutputEncoding = [System.Text.Encoding]::UTF8
+        
+        $process = New-Object System.Diagnostics.Process
+        $process.StartInfo = $processInfo
+        $process.Start() | Out-Null
+        
+        $output = $process.StandardOutput.ReadToEnd()
+        $errorOutput = $process.StandardError.ReadToEnd()
+        $process.WaitForExit()
+        
+        if ($process.ExitCode -ne 0 -and $errorOutput) {
+            Write-Host "❌ Winget search error: $errorOutput" -ForegroundColor Red
+            return @()
+        }
+        
+        $searchResults = $output -split "`n" | Where-Object { $_.Trim() -ne "" }
         
         $packages = @()
+        $headerPassed = $false
+        
         foreach ($line in $searchResults) {
-            if ($line -match "^(.+?)\s+([^\s]+)\s+(.+?)(?:\s+winget)?$" -and $line -notmatch "^Name\s+Id|^-+$") {
+            # Skip header lines - look for "Name" and "Id" in the line, and the dashes line
+            if ($line -match "Name.*Id.*Version" -or $line -match "^-+") {
+                $headerPassed = $true
+                continue
+            }
+            
+            if (-not $headerPassed) { continue }
+            
+            # Clean the line of any problematic characters
+            $cleanLine = $line -replace '[^\x20-\x7E]', ' ' -replace '\s+', ' '
+            $cleanLine = $cleanLine.Trim()
+            
+            if ($cleanLine.Length -eq 0) { continue }
+            
+            # Try to parse the line - winget format is typically: Name Id Version [Source]
+            # Handle different formats more carefully
+            
+            # First try: Standard format with proper ID structure (contains dots or is alphanumeric)
+            if ($cleanLine -match '^(.+?)\s+([A-Za-z0-9]+(?:\.[A-Za-z0-9]+)+|[A-Z0-9]{10,})\s+([^\s]+)(?:\s+(.+?))?$') {
+                $name = $matches[1].Trim()
+                $id = $matches[2].Trim()
+                $version = $matches[3].Trim()
+                
                 $packages += [PSCustomObject]@{
-                    Name = $matches[1].Trim()
-                    Id = $matches[2].Trim()
-                    Version = $matches[3].Trim()
+                    Name = $name
+                    Id = $id
+                    Version = $version
                     Type = "Winget"
+                }
+            }
+            # Second try: Handle entries that might have unusual formatting
+            elseif ($cleanLine -match '^(.+?)\s+(\S+)\s+(\S+)(?:\s+(.+?))?$') {
+                $name = $matches[1].Trim()
+                $id = $matches[2].Trim()
+                $version = $matches[3].Trim()
+                
+                # Only add if ID looks legitimate (not a word like "by" or "Inc")
+                if ($id -notmatch '^(by|inc|corp|ltd|llc|the|and|of|for)$' -and $id.Length -gt 2) {
+                    $packages += [PSCustomObject]@{
+                        Name = $name
+                        Id = $id
+                        Version = $version
+                        Type = "Winget"
+                    }
                 }
             }
         }
@@ -486,7 +578,7 @@ function Search-WingetPackages {
     }
 }
 
-function Search-GitHubRepositories {
+function Search-GitHubRepository {
     param([string]$SearchTerm)
     
     try {
@@ -525,7 +617,7 @@ function Search-GitHubRepositories {
     }
 }
 
-function Show-SearchResults {
+function Show-SearchResult {
     param(
         [array]$WingetResults,
         [array]$GitHubResults
@@ -682,7 +774,7 @@ function Add-SoftwareToCategory {
     $saveChoice = Read-Host
     
     if ($saveChoice -eq 'y' -or $saveChoice -eq 'Y') {
-        Save-SoftwareCategories
+        Save-SoftwareCategory
     }
     
     Write-Host ""
@@ -690,15 +782,26 @@ function Add-SoftwareToCategory {
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 }
 
-function Save-SoftwareCategories {
+function Save-SoftwareCategory {
     try {
         Write-Host "Saving changes to JSON file..." -ForegroundColor Cyan
         
-        $jsonPath = ".\software-categories.json"
+        # Get the directory where this script is located
+        $scriptDirectory = $null
+        if ($MyInvocation.ScriptName) {
+            $scriptDirectory = Split-Path -Parent $MyInvocation.ScriptName
+        } elseif ($PSCommandPath) {
+            $scriptDirectory = Split-Path -Parent $PSCommandPath
+        } else {
+            # Fallback: assume script is in current directory
+            $scriptDirectory = $PWD.Path
+        }
+        
+        $jsonPath = Join-Path $scriptDirectory "software-categories.json"
         
         # Create backup of JSON file
         if (Test-Path $jsonPath) {
-            $backupPath = ".\software-categories_backup_$(Get-Date -Format 'yyyyMMdd_HHmmss').json"
+            $backupPath = Join-Path $scriptDirectory "software-categories_backup_$(Get-Date -Format 'yyyyMMdd_HHmmss').json"
             Copy-Item -Path $jsonPath -Destination $backupPath
             Write-Host "Backup created: $backupPath" -ForegroundColor Green
         }
@@ -738,10 +841,10 @@ function Show-SearchMenu {
     Write-Host "Searching for '$searchTerm'..." -ForegroundColor Cyan
     Write-Host ""
     
-    $wingetResults = Search-WingetPackages -SearchTerm $searchTerm
-    $githubResults = Search-GitHubRepositories -SearchTerm $searchTerm
+    $wingetResults = Search-WingetPackage -SearchTerm $searchTerm
+    $githubResults = Search-GitHubRepository -SearchTerm $searchTerm
     
-    $selectedSoftware = Show-SearchResults -WingetResults $wingetResults -GitHubResults $githubResults
+    $selectedSoftware = Show-SearchResult -WingetResults $wingetResults -GitHubResults $githubResults
     
     if ($selectedSoftware.Count -gt 0) {
         Add-SoftwareToCategory -SelectedSoftware $selectedSoftware
@@ -750,8 +853,19 @@ function Show-SearchMenu {
 
 # ===== SOFTWARE CATEGORIES =====
 # Load software categories from JSON file
-function Load-SoftwareCategories {
-    $jsonPath = ".\software-categories.json"
+function Get-SoftwareCategory {
+    # Get the directory where this script is located
+    $scriptDirectory = $null
+    if ($MyInvocation.ScriptName) {
+        $scriptDirectory = Split-Path -Parent $MyInvocation.ScriptName
+    } elseif ($PSCommandPath) {
+        $scriptDirectory = Split-Path -Parent $PSCommandPath
+    } else {
+        # Fallback: assume script is in current directory
+        $scriptDirectory = $PWD.Path
+    }
+    
+    $jsonPath = Join-Path $scriptDirectory "software-categories.json"
     
     if (-not (Test-Path $jsonPath)) {
         Write-Host "❌ Error: Software categories file not found: $jsonPath" -ForegroundColor Red
@@ -797,7 +911,7 @@ function Load-SoftwareCategories {
 }
 
 # Initialize software categories from JSON file
-$softwareCategories = Load-SoftwareCategories
+$softwareCategories = Get-SoftwareCategory
 
 # ===== PAGING UTILITY FUNCTION =====
 function Show-PagedList {
@@ -935,7 +1049,7 @@ function Show-PagedList {
 }
 
 # ===== NAVIGATION FUNCTIONS =====
-function Show-MainCategories {
+function Show-MainCategory {
     Clear-Host
     Write-Host "╔══════════════════════════════════════════════════╗" -ForegroundColor Cyan
     Write-Host "║           Software Installation Manager          ║" -ForegroundColor Cyan
@@ -960,7 +1074,7 @@ function Show-MainCategories {
     Write-Host "Enter your choice: " -ForegroundColor Cyan -NoNewline
 }
 
-function Show-Subcategories {
+function Show-Subcategory {
     param([string]$categoryName)
     
     Clear-Host
@@ -993,7 +1107,7 @@ function Show-SoftwareList {
     
     $softwareList = $softwareCategories[$categoryName][$subcategoryName]
     $subtitle = "$categoryName > $subcategoryName"
-    $legend = "Legend: [W]=Winget, [M]=MSI, [E]=EXE, [PS-M]=PowerShell Module, [PS-S]=PowerShell Script, [C]=Custom Install, [GH]=GitHub Release"
+    $legend = "Legend: [W]=Winget, [M]=MSI, [E]=EXE, [PS-M]=PowerShell Module, [PS-S]=PowerShell Script, [CU]=Custom (Manual), [C]=Custom Install, [GH]=GitHub Release"
     
     $displayScript = {
         param($software, $index)
@@ -1004,6 +1118,7 @@ function Show-SoftwareList {
             "EXE" { "[E]" }
             "PowerShellModule" { "[PS-M]" }
             "PowerShellScript" { "[PS-S]" }
+            "Custom" { "[CU]" }
             "CustomInstall" { "[C]" }
             "GitHub" { "[GH]" }
             default { "[?]" }
@@ -1035,7 +1150,7 @@ function Get-UserMenuChoice {
     } while ($true)
 }
 
-function Navigate-SoftwareMenu {
+function Invoke-SoftwareMenu {
     $currentLevel = "main"
     $selectedCategory = ""
     $selectedSubcategory = ""
@@ -1043,7 +1158,7 @@ function Navigate-SoftwareMenu {
     while ($true) {
         switch ($currentLevel) {
             "main" {
-                Show-MainCategories
+                Show-MainCategory
                 $choice = Get-UserMenuChoice
                 
                 switch ($choice) {
@@ -1089,7 +1204,7 @@ function Navigate-SoftwareMenu {
             }
             
             "subcategory" {
-                Show-Subcategories -categoryName $selectedCategory
+                Show-Subcategory -categoryName $selectedCategory
                 $choice = Get-UserMenuChoice
                 
                 switch ($choice) {
@@ -1189,13 +1304,19 @@ function Install-SelectedSoftware {
                     $success = Install-PowerShellScript -Name $app.Name -Url $app.Url -Arguments $app.Arguments
                 }
                 
+                "Custom" {
+                    # For custom installations, open the URL in browser for manual download
+                    Write-Host "Opening download page for $($app.Name)..." -ForegroundColor Cyan
+                    Write-Host "URL: $($app.Url)" -ForegroundColor Gray
+                    Start-Process $app.Url
+                    Write-Host "✅ Download page opened in browser. Please download and install manually." -ForegroundColor Green
+                    Add-Content -Path $LogPath -Value "$(Get-Date): Custom installation - Opened URL for $($app.Name): $($app.Url)"
+                    $success = $true  # Mark as success since we opened the URL
+                }
+                
                 "CustomInstall" {
-                    if ($app.Name -eq "Stable Diffusion WebUI (Automatic1111)") {
-                        $success = Install-StableDiffusionWebUI -Name $app.Name
-                    } else {
-                        Write-Host "Unknown custom installation: $($app.Name)" -ForegroundColor Red
-                        Add-Content -Path $LogPath -Value "ERROR: Unknown custom installation $($app.Name)"
-                    }
+                    # Generic GitHub project installation
+                    $success = Install-GitHubProject -Name $app.Name -Repository $app.Repository -InstallPath $app.InstallPath -Dependencies $app.Dependencies -StartupScript $app.StartupScript -StartupCommand $app.StartupCommand -ShortcutName $app.ShortcutName -PostInstallInstructions $app.PostInstallInstructions
                 }
                 
                 "GitHub" {
@@ -1235,16 +1356,14 @@ function Install-SelectedSoftware {
 
 # ===== MAIN EXECUTION =====
 # Check if Winget is available
-$wingetAvailable = $false
 if (Get-Command winget -ErrorAction SilentlyContinue) {
-    $wingetAvailable = $true
     Write-Host "Winget is available" -ForegroundColor Green
 } else {
     Write-Host "Winget not found. Some installations may not be available." -ForegroundColor Yellow
 }
 
 # Start the navigation menu
-Navigate-SoftwareMenu
+Invoke-SoftwareMenu
 
 Write-Host ""
 Write-Host 'Thank you for using Software Installation Manager!' -ForegroundColor Green
