@@ -7,20 +7,6 @@
 installation_log_*.txt
 *_log_*.txt
 
-# ===== REPORT FILES =====
-# Ignore generated test reports (these are temporary)
-*_availability_report_*.json
-*_report_*.json
-software_availability_report_*.json
-github_availability_report_*.json
-winget_availability_report_*.json
-
-# ===== BACKUP FILES =====
-# Ignore backup files (these are local safety copies)
-*_backup_*.ps1
-*_backup_*.json
-*.bak
-
 # ===== TEMPORARY FILES =====
 # Ignore temporary downloads and cache
 temp/
