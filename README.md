@@ -193,7 +193,6 @@ This allows you to:
 9. **Some menus have text ANSI lines off**: Some ANSI text needs to be fixed and are not in alignment. Minor issue
 
 
-
 ## 📄 License
 
 This project is licensed under the MIT License.
