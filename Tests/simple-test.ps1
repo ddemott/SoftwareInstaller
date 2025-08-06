@@ -1,6 +1,7 @@
 # Simple test to check JSON content
 $scriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
-$jsonPath = Join-Path $scriptDirectory "software-categories.json"
+$parentDirectory = Split-Path -Parent $scriptDirectory
+$jsonPath = Join-Path $parentDirectory "software-categories.json"
 
 Write-Host "Loading JSON from: $jsonPath"
 
@@ -20,18 +21,6 @@ if (Test-Path $jsonPath) {
             Write-Host "System Tools software:" -ForegroundColor Green
             $categories.Utilities."System Tools" | ForEach-Object { 
                 Write-Host "  - $($_.Name)" -ForegroundColor Yellow
-            }
-            
-            # Look specifically for CrystalDiskInfo
-            $crystalDisk = $categories.Utilities."System Tools" | Where-Object { $_.Name -like "*CrystalDisk*" }
-            if ($crystalDisk) {
-                Write-Host "`nFound CrystalDisk software:" -ForegroundColor Green
-                $crystalDisk | ForEach-Object {
-                    Write-Host "  Name: $($_.Name)" -ForegroundColor Cyan
-                    Write-Host "  Type: $($_.Type)" -ForegroundColor Gray
-                }
-            } else {
-                Write-Host "`nNo CrystalDisk software found!" -ForegroundColor Red
             }
         } else {
             Write-Host "`nSystem Tools category not found!" -ForegroundColor Red

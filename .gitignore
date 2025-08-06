@@ -1,0 +1,56 @@
+# PowerShell Software Installer - Git Ignore File
+
+# ===== LOG FILES =====
+# Ignore all installation and test logs
+*.log
+*.txt
+installation_log_*.txt
+*_log_*.txt
+
+# ===== REPORT FILES =====
+# Ignore generated test reports (these are temporary)
+*_availability_report_*.json
+*_report_*.json
+software_availability_report_*.json
+github_availability_report_*.json
+winget_availability_report_*.json
+
+# ===== BACKUP FILES =====
+# Ignore backup files (these are local safety copies)
+*_backup_*.ps1
+*_backup_*.json
+*.bak
+
+# ===== TEMPORARY FILES =====
+# Ignore temporary downloads and cache
+temp/
+tmp/
+*.tmp
+*.temp
+
+# ===== INSTALLED SOFTWARE EXPORTS =====
+# These contain user-specific installed software lists
+installed_software_*.json
+
+# ===== SYSTEM SPECIFIC FILES =====
+# Windows system files
+Thumbs.db
+desktop.ini
+*.lnk
+
+# ===== POWERSHELL SPECIFIC =====
+# PowerShell module cache
+PSGetModuleInfo.xml
+
+# ===== VS CODE SPECIFIC =====
+# VS Code workspace settings (optional - comment out if you want to share)
+.vscode/
+*.code-workspace
+
+# ===== WHAT TO KEEP (COMMENTED FOR REFERENCE) =====
+# Keep these important files:
+# SoftwareInstaller.ps1          - Main script
+# software-categories.json       - Software catalog
+# README.md                      - Documentation
+# Tests/                         - Test scripts folder
+# validate.ps1                   - Validation script

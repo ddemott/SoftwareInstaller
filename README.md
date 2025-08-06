@@ -30,7 +30,7 @@ A comprehensive PowerShell script for Windows 11 that provides an interactive, h
 - Search Winget repositories for new software packages
 - Search GitHub repositories for open-source tools
 - **Automatic addition** to appropriate categories with guided category selection
-- **Smart search results** - finds MemTest86, CrystalDiskInfo, Steam, Double Commander, and thousands more
+- **Smart search results** - finds MemTest86, Steam, Double Commander, and thousands more
 - **No manual JSON editing required** - everything is handled through the interface
 - UTF-8 encoding support for international characters
 
@@ -60,7 +60,7 @@ A comprehensive PowerShell script for Windows 11 that provides an interactive, h
 ### 🎮 Gaming (4 subcategories, 15+ packages)
 ### 📊 Productivity (4 subcategories, 15+ packages)
 ### ⚙️ Utilities (4 subcategories, 45+ packages)
-- **System Tools**: PowerToys, Process Monitor, TreeSize, CCleaner, Speccy, HWiNFO, CPU-Z, GPU-Z, CrystalDiskInfo, CrystalDiskInfo Portable, **MemTest86**, Windows Terminal, PowerShell Core, and 15+ Stardock tools
+- **System Tools**: PowerToys, Process Monitor, TreeSize, CCleaner, Speccy, HWiNFO, CPU-Z, GPU-Z, **MemTest86**, Windows Terminal, PowerShell Core, and 15+ Stardock tools
 - **File Management**: 7-Zip, WinRAR, Everything, FreeCommander, Double Commander
 - **Security**: Malwarebytes, Bitdefender, KeePass, Bitwarden
 - **Remote Access**: PuTTY, KiTTY, MobaXterm, TeamViewer, AnyDesk, Chrome Remote Desktop
@@ -72,8 +72,8 @@ A comprehensive PowerShell script for Windows 11 that provides an interactive, h
 ### Installation
 ```powershell
 # Clone the repository
-git clone https://github.com/yourusername/powershell-software-installer.git
-cd powershell-software-installer
+git clone https://github.com/ddemott/SoftwareInstaller.git
+cd SoftwareInstaller
 
 # Set execution policy (if needed)
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
@@ -125,8 +125,11 @@ This allows you to:
 
 - `SoftwareInstaller.ps1` - Main script with hierarchical navigation system
 - `software-categories.json` - Complete software catalog with all categories (250+ packages)
-- `simple-test.ps1` - Verification script for checking software catalog integrity  
-- `crystaldiskinfo-test.ps1` - Specific test for CrystalDiskInfo verification
+- `Tests/` - Directory containing all test and validation scripts
+  - `simple-test.ps1` - Verification script for checking software catalog integrity
+  - `test-suite.ps1` - Comprehensive test suite for all software categories
+  - `validate.ps1` - Validation script for JSON structure and data integrity
+  - `debug-search.ps1` - Debugging script for search functionality
 - `getInstalledFiles.ps1` - System audit tool for generating installed software reports
 - `installation_log_*.txt` - Generated installation logs (timestamped)
 - `installed_software_*.json` - Exported software inventory (if requested)
@@ -138,14 +141,13 @@ This allows you to:
 **Don't manually edit JSON files!** Use the built-in search feature:
 1. Run `.\SoftwareInstaller.ps1`
 2. Press **"S"** for "Search & add new software"
-3. Enter your search term (e.g., "memtest86", "crystaldiskinfo", "steam")
+3. Enter your search term (e.g., "memtest86", "steam")
 4. Choose from Winget or GitHub search results
 5. Select the appropriate category for the software
 6. Confirm the addition - it's automatically added to your catalog!
 
 **Recent Additions Made Easy:**
 - ✅ MemTest86 - Memory testing tool (added via Custom URL)
-- ✅ CrystalDiskInfo Portable - GitHub release version
 - ✅ Steam games - Automatically detected from system
 - ✅ Double Commander - File manager via Winget
 

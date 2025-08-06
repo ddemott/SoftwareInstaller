@@ -182,8 +182,8 @@
       },
       {
         "Name": "Stable Diffusion WebUI Forge",
-        "Type": "Winget",
-        "Id": "StabilityAI.StableDiffusion",
+        "Type": "GitHub",
+        "Repository": "lllyasviel/stable-diffusion-webui-forge",
         "Description": "AI image generation software"
       },
       {
@@ -235,13 +235,13 @@
       {
         "Name": "Jupyter Lab",
         "Type": "Winget",
-        "Id": "Project.Jupyter.JupyterLab",
+        "Id": "ProjectJupyter.JupyterLab",
         "Description": "Web-based interactive development environment"
       },
       {
         "Name": "R Studio",
         "Type": "Winget",
-        "Id": "RStudio.RStudio.OpenSource",
+        "Id": "Posit.RStudio",
         "Description": "IDE for R statistical computing"
       },
       {
@@ -303,6 +303,12 @@
         "Description": "Android development IDE"
       },
       {
+        "Name": "Spring Tool Suite",
+        "Type": "Winget",
+        "Id": "VMware.SpringToolSuite",
+        "Description": "Eclipse-based IDE for Spring development"
+      },
+      {
         "Name": "Zed Editor",
         "Type": "GitHub",
         "Repository": "zed-industries/zed",
@@ -346,13 +352,13 @@
       {
         "Name": "DBeaver",
         "Type": "Winget",
-        "Id": "dbeaver.dbeaver",
+        "Id": "DBeaver.DBeaver.Community",
         "Description": "Universal database tool"
       },
       {
         "Name": "PostgreSQL",
         "Type": "Winget",
-        "Id": "PostgreSQL.PostgreSQL",
+        "Id": "PostgreSQL.PostgreSQL.17",
         "Description": "Advanced open source database"
       },
       {
@@ -535,8 +541,8 @@
     "File Transfer": [
       {
         "Name": "FileZilla",
-        "Type": "Winget",
-        "Id": "TimKosse.FileZilla.Client",
+        "Type": "Custom",
+        "Url": "https://download.filezilla-project.org/client/FileZilla_latest_win64-setup.exe",
         "Description": "FTP client"
       },
       {
@@ -560,7 +566,7 @@
       {
         "Name": "FlashFXP",
         "Type": "Winget",
-        "Id": "OpenMPT.FlashFXP",
+        "Id": "OpenSight.FlashFXP",
         "Description": "Professional FTP client"
       },
       {
@@ -631,8 +637,8 @@
       },
       {
         "Name": "FL Studio",
-        "Type": "Winget",
-        "Id": "ImageLine.FLStudio",
+        "Type": "Custom",
+        "Url": "https://www.image-line.com/fl-studio-download/",
         "Description": "Music production software"
       }
     ],
@@ -645,8 +651,8 @@
       },
       {
         "Name": "DaVinci Resolve",
-        "Type": "Winget",
-        "Id": "Blackmagic.DaVinciResolve",
+        "Type": "Custom",
+        "Url": "https://www.blackmagicdesign.com/products/davinciresolve",
         "Description": "Professional video editor"
       },
       {
@@ -695,9 +701,9 @@
       },
       {
         "Name": "Adobe Photoshop",
-        "Type": "Winget",
-        "Id": "Adobe.Photoshop.2024",
-        "Description": "Professional image editor"
+        "Type": "Custom",
+        "Url": "https://www.adobe.com/products/photoshop.html",
+        "Description": "Professional image editor (requires Adobe Creative Cloud)"
       }
     ]
   },
@@ -744,7 +750,7 @@
       {
         "Name": "PDFCreator",
         "Type": "Winget",
-        "Id": "pdfforge.PDFCreator",
+        "Id": "Avanquestpdfforge.PDFCreator-Free",
         "Description": "PDF creation tool"
       }
     ],
@@ -763,9 +769,9 @@
       },
       {
         "Name": "OneNote",
-        "Type": "Winget",
-        "Id": "Microsoft.OneNote",
-        "Description": "Microsoft's note-taking app"
+        "Type": "Custom",
+        "Url": "https://www.microsoft.com/en-us/microsoft-365/onenote/digital-note-taking-app",
+        "Description": "Microsoft's note-taking app (part of Microsoft 365)"
       },
       {
         "Name": "Evernote",
@@ -835,9 +841,9 @@
       },
       {
         "Name": "Call of Duty",
-        "Type": "Winget",
-        "Id": "Activision.CallofDuty",
-        "Description": "Call of Duty game launcher"
+        "Type": "Custom",
+        "Url": "https://www.callofduty.com/",
+        "Description": "Call of Duty game launcher (download from official website)"
       }
     ],
     "Gaming Tools": [
@@ -855,8 +861,8 @@
       },
       {
         "Name": "Fraps",
-        "Type": "Winget",
-        "Id": "Beepa.Fraps",
+        "Type": "Custom",
+        "Url": "https://fraps.com/download.php",
         "Description": "Game recording software"
       }
     ],
@@ -933,20 +939,6 @@
         "Type": "Winget",
         "Id": "TechPowerUp.GPU-Z",
         "Description": "Graphics card information"
-      },
-      {
-        "Name": "CrystalDiskInfo",
-        "Type": "Winget",
-        "Id": "CrystalDewWorld.CrystalDiskInfo",
-        "Description": "Hard disk health monitoring"
-      },
-      {
-        "Name": "CrystalDiskInfo Portable",
-        "Type": "GitHub",
-        "Repository": "hiyohiyo/CrystalDiskInfo",
-        "AssetPattern": "CrystalDiskInfo.*Portable.*\\.zip$",
-        "InstallPath": "",
-        "Description": "Hard disk health monitoring (Portable version)"
       },
       {
         "Name": "MemTest86",
@@ -1087,7 +1079,7 @@
       {
         "Name": "FreeCommander",
         "Type": "Winget",
-        "Id": "Marek.FreeCommander",
+        "Id": "MarekJasinski.FreeCommanderXE",
         "Description": "File manager"
       },
       {
@@ -1132,8 +1124,8 @@
       },
       {
         "Name": "KiTTY",
-        "Type": "Winget",
-        "Id": "9bis.KiTTY",
+        "Type": "Custom",
+        "Url": "https://www.9bis.net/kitty/#!pages/download.md",
         "Description": "Enhanced PuTTY fork with additional features"
       },
       {
@@ -1157,13 +1149,13 @@
       {
         "Name": "AnyDesk",
         "Type": "Winget",
-        "Id": "AnyDeskSoftwareGmbH.AnyDesk",
+        "Id": "AnyDesk.AnyDesk",
         "Description": "Remote desktop tool"
       },
       {
         "Name": "Chrome Remote Desktop",
         "Type": "Winget",
-        "Id": "Google.ChromeRemoteDesktop",
+        "Id": "Google.ChromeRemoteDesktopHost",
         "Description": "Google's remote access tool"
       }
     ]
@@ -1190,8 +1182,8 @@
       },
       {
         "Name": "Advanced Port Scanner",
-        "Type": "Winget",
-        "Id": "Famatech.AdvancedPortScanner",
+        "Type": "Custom",
+        "Url": "https://www.advanced-port-scanner.com/",
         "Description": "Network port scanner"
       },
       {
@@ -1352,7 +1344,7 @@
       {
         "Name": "Autopsy",
         "Type": "Winget",
-        "Id": "SleuthKitLabs.Autopsy",
+        "Id": "SleuthKit.Autopsy",
         "Description": "Digital forensics platform"
       },
       {
@@ -1527,7 +1519,7 @@
       {
         "Name": "Maltego",
         "Type": "Winget",
-        "Id": "PatervaLimited.Maltego",
+        "Id": "Maltego.Maltego",
         "Description": "Link analysis and data mining platform"
       }
     ]

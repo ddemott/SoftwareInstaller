@@ -1,5 +1,12 @@
 # Debug search test
-. ".\SoftwareInstaller.ps1"
+$scriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
+$parentDirectory = Split-Path -Parent $scriptDirectory
+$mainScriptPath = Join-Path $parentDirectory "SoftwareInstaller.ps1"
+
+# Load only the functions, not the main execution
+$scriptContent = Get-Content $mainScriptPath -Raw
+$functionsOnly = $scriptContent -replace '# Start the navigation menu[\s\S]*', ''
+Invoke-Expression $functionsOnly
 
 # Test the search function with debug output
 function Debug-Search-WingetPackages {

@@ -1,6 +1,10 @@
 # Test Script for Software Installation Manager
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
 
+# Get the parent directory (main project directory)
+$scriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
+$parentDirectory = Split-Path -Parent $scriptDirectory
+
 Write-Host "=================================================" -ForegroundColor Cyan
 Write-Host "    Testing Software Installation Manager       " -ForegroundColor Cyan
 Write-Host "=================================================" -ForegroundColor Cyan
@@ -8,19 +12,21 @@ Write-Host ""
 
 # Test 1: Check if main script exists
 Write-Host "Test 1: Checking main script..." -ForegroundColor Yellow
-if (Test-Path ".\SoftwareInstaller.ps1") {
+$mainScriptPath = Join-Path $parentDirectory "SoftwareInstaller.ps1"
+if (Test-Path $mainScriptPath) {
     Write-Host "PASS: SoftwareInstaller.ps1 exists" -ForegroundColor Green
 } else {
-    Write-Host "FAIL: SoftwareInstaller.ps1 not found" -ForegroundColor Red
+    Write-Host "FAIL: SoftwareInstaller.ps1 not found at $mainScriptPath" -ForegroundColor Red
     exit 1
 }
 
 # Test 2: Check if JSON file exists and is valid
 Write-Host "Test 2: Checking software categories JSON..." -ForegroundColor Yellow
-if (Test-Path ".\software-categories.json") {
+$jsonPath = Join-Path $parentDirectory "software-categories.json"
+if (Test-Path $jsonPath) {
     Write-Host "PASS: software-categories.json exists" -ForegroundColor Green
     try {
-        $jsonContent = Get-Content ".\software-categories.json" -Raw | ConvertFrom-Json
+        $jsonContent = Get-Content $jsonPath -Raw | ConvertFrom-Json
         $categoryCount = $jsonContent.PSObject.Properties.Count
         Write-Host "PASS: JSON file is valid - $categoryCount categories found" -ForegroundColor Green
     } catch {
@@ -28,14 +34,17 @@ if (Test-Path ".\software-categories.json") {
         exit 1
     }
 } else {
-    Write-Host "FAIL: software-categories.json not found" -ForegroundColor Red
+    Write-Host "FAIL: software-categories.json not found at $jsonPath" -ForegroundColor Red
     exit 1
 }
 
 # Test 3: Load the script and check basic functions
 Write-Host "Test 3: Loading script and testing functions..." -ForegroundColor Yellow
 try {
-    . ".\SoftwareInstaller.ps1"
+    # Load only the functions, not the main execution
+    $scriptContent = Get-Content $mainScriptPath -Raw
+    $functionsOnly = $scriptContent -replace '# Start the navigation menu[\s\S]*', ''
+    Invoke-Expression $functionsOnly
     Write-Host "PASS: Script loaded successfully" -ForegroundColor Green
 } catch {
     Write-Host "FAIL: Script failed to load: $($_.Exception.Message)" -ForegroundColor Red
