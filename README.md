@@ -190,6 +190,9 @@ This allows you to:
 6. **Admin Rights**: Some installations require administrator privileges
 7. **PowerShell Execution Policy**: Default Windows security settings may prevent script execution
 8. **Installation Path Selection**: Not all installers support custom path selection (depends on the software)
+9. **Some menus have text ANSI lines off**: Some ANSI text needs to be fixed and are not in alignment. Minor issue
+
+
 
 ## 📄 License
 
